@@ -657,6 +657,37 @@
     <script src="js/intlTelInput-jquery.min.js" type="text/javascript"></script>
     <script src="js/tinycolor.min.js" type="text/javascript"></script>
     <script src="js/owl.carousel.min.js" type="text/javascript"></script>
+
+    <script>
+        function includeHTML() {
+          var z, i, elmnt, file, xhttp;
+          /*loop through a collection of all HTML elements:*/
+          z = document.getElementsByTagName("*");
+          for (i = 0; i < z.length; i++) {
+            elmnt = z[i];
+            /*search for elements with a certain atrribute:*/
+            file = elmnt.getAttribute("nclude-html");
+            if (file) {
+              /*make an HTTP request using the attribute value as the file name:*/
+              xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                  if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                  if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                  /*remove the attribute, and call this function once more:*/
+                  elmnt.removeAttribute("include-html");
+                  includeHTML();
+                }
+              }      
+              xhttp.open("GET", file, true);
+              xhttp.send();
+              /*exit the function:*/
+              return;
+            }
+          }
+        };
+        </script>
+
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
     <meta content="" property="og:url">
@@ -681,25 +712,7 @@
     <div id="content"><div class="site-wrapper" style="background-image:url(https:\/\/images.unsplash.com\/photo-1453872302360-eed3c5f8ff66?ixlib=rb-1.2.1&amp;q=30&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjQxMDYzfQ);position:relative;">
     <div class="site-wrapper-background" style="background: linear-gradient(to top, rgb(0, 74, 197), rgb(0, 156, 199)); opacity: 0.9;"></div>
     <div class="site-wrapper-inner">
-    <div id="header" name="header">
-    <div class="device-container">
-    <img src="img/iphone.png" template-editable="meta.image" template-section="" template-type="image">
-    </div>
-    <div class="text-container">
-    <div class="tc-table">
-    <div style="display:table-cell;vertical-align:middle;">
-    <h1 id="text.title">Tiêu đề của app nhé</h1>
-    <h2 id="text.subtitle">thông tin của app nhé</h2>
-    
-    <div style="margin-top:2em;">
-    <a class="store-button ios" href="?download=1332042987" target="_blank">
-    <img src="img/ios.png">
-    </a>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
+        <div w3-include-html="privacy_policy.html"></div> 
     </div>
     </div></div>
     <footer><footer>
@@ -710,7 +723,7 @@
     </div>
     <div id="attribution">
     <!-- <p><a href="/">Homepage</a></p> -->
-    <p>App <a href="policy.html">Privacy Policy</a>
+    <p>App <a href="privacy_policy.html">Privacy Policy</a>
         &amp; <a href="terms.html">Terms of Use</a>
     </p>
     </div>
