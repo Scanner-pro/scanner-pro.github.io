@@ -658,6 +658,16 @@
     <script src="js/tinycolor.min.js" type="text/javascript"></script>
     <script src="js/owl.carousel.min.js" type="text/javascript"></script>
 
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <meta content="" property="og:url">
+    <meta content="website" property="og:type">
+    <meta content="Scanner-pro" property="og:title">
+    <!-- <meta property="og:image" content="" /> -->
+    <meta content="" property="og:description">
+    <meta content="" name="description">
+    <title>Scanner-pro</title></head>
+
     <script>
         function includeHTML() {
           var z, i, elmnt, file, xhttp;
@@ -666,7 +676,7 @@
           for (i = 0; i < z.length; i++) {
             elmnt = z[i];
             /*search for elements with a certain atrribute:*/
-            file = elmnt.getAttribute("nclude-html");
+            file = elmnt.getAttribute("include-html");
             if (file) {
               /*make an HTTP request using the attribute value as the file name:*/
               xhttp = new XMLHttpRequest();
@@ -688,15 +698,6 @@
         };
         </script>
 
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
-    <meta content="" property="og:url">
-    <meta content="website" property="og:type">
-    <meta content="Scanner-pro" property="og:title">
-    <!-- <meta property="og:image" content="" /> -->
-    <meta content="" property="og:description">
-    <meta content="" name="description">
-    <title>Scanner-pro</title></head>
     <body>
     <style id="global_style">:root {
         --background-color: #004AC5;
@@ -715,7 +716,7 @@
         <div include-html="privacy_policy.html"></div> 
     </div>
     </div></div>
-    <footer><footer>
+    <footer>
     <div class="container">
     <div class="row">
     <div class="col-xs-12 col-md-6" style="text-align:left;margin:auto;vertical-align:middle;">
@@ -723,7 +724,7 @@
     </div>
     <div id="attribution">
     <!-- <p><a href="/">Homepage</a></p> -->
-    <p>App <a href="privacy_policy.html">Privacy Policy</a>
+    <p>App <a href="policy.html">Privacy Policy</a>
         &amp; <a href="terms.html">Terms of Use</a>
     </p>
     </div>
@@ -737,5 +738,8 @@
     </div>
     </div>
     </div>
-    </footer></footer>
+    </footer>
+
+    <script> includeHTML(); </script>
+
     </body></html>
